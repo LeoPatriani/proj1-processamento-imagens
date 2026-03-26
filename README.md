@@ -1,8 +1,7 @@
 # Projeto 1 – Processamento de Imagens
 
-**Disciplina:** Computação Visual  
-**Universidade:** Universidade Presbiteriana Mackenzie  
-**Professor:** André Kishimoto
+## Leonardo Patriani Cardoso - 10417188
+## João Victor Martins - 10417928
 
 ---
 
@@ -151,12 +150,8 @@ A reversão é feita mantendo a superfície original em cinza na memória; nenhu
 
 ## Contribuições dos integrantes
 
-| Integrante | RA | Contribuições |
-|------------|-----|---------------|
-| Integrante 1 | XXXXXXX | Carregamento de imagem, conversão para escala de cinza, equalização do histograma |
-| Integrante 2 | XXXXXXX | Interface gráfica (GUI), loop de eventos, renderização do histograma, botão |
-
-> **Atenção:** Preencha a tabela acima com os nomes, RAs e contribuições reais do grupo antes da entrega.
+- **(Leonardo Patriani Cardoso - 10417188):** Responsável pela lógica central de processamento de imagens (`image_processing.c` e `image_processing.h`), implementação da conversão da escala perceptual de cinza e modelagem matemática das análises estatísticas e equalização do histograma.
+- **(João Victor Martins - 10417928):** Responsável pelo gerenciamento do ciclo de vida da aplicação (`main.c`), estruturação do ambiente de compilação (`Makefile`), integração da interface gráfica com a SDL3 (`gui.c`), renderização visual das janelas e captura de eventos do teclado e mouse.
 
 ---
 
