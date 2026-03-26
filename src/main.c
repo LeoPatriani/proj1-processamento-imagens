@@ -1,9 +1,7 @@
 /*
- *
  * Grupo:
- *   - Leonardo Patriani Cardoso
+ *   - Leonardo Patriani Cardoso - 1041788
  *   - João Victor Martins - 10417928
- *
  * Descrição: Software de processamento de imagens usando SDL3 e SDL_image.
  */
 
