@@ -1,0 +1,16 @@
+# Arquivos gerados pelo compilador
+build/
+*.o
+*.a
+
+# Executável
+programa
+
+# Imagem de saída
+output_image.png
+
+# Arquivos de editor
+*.swp
+*.swo
+.vscode/
+.idea/
