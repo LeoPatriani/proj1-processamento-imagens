@@ -3,6 +3,11 @@
 #include <string.h>
 #include <stdio.h>
 
+#define LIMIAR_ESCURO 85.0
+#define LIMIAR_CLARO 170.0
+#define LIMIAR_BAIXO_CONTRASTE 40.0
+#define LIMIAR_ALTO_CONTRASTE 80.0
+
 /* ------------------------------------------------------------------ */
 void compute_histogram(SDL_Surface *gray, int hist[256]) {
     memset(hist, 0, 256 * sizeof(int));
@@ -56,18 +61,18 @@ void analyze_histogram(const int hist[256], double *mean, double *stddev,
     *stddev = sqrt(variance);
 
     /* Classificação de brilho */
-    if (*mean < 85.0) {
+    if (*mean < LIMIAR_ESCURO) {
         snprintf(brightness_label, LABEL_MAX, "escura");
-    } else if (*mean < 170.0) {
+    } else if (*mean < LIMIAR_CLARO) {
         snprintf(brightness_label, LABEL_MAX, "media");
     } else {
         snprintf(brightness_label, LABEL_MAX, "clara");
     }
 
     /* Classificação de contraste */
-    if (*stddev < 40.0) {
+    if (*stddev < LIMIAR_BAIXO_CONTRASTE) {
         snprintf(contrast_label, LABEL_MAX, "baixo");
-    } else if (*stddev < 80.0) {
+    } else if (*stddev < LIMIAR_ALTO_CONTRASTE) {
         snprintf(contrast_label, LABEL_MAX, "medio");
     } else {
         snprintf(contrast_label, LABEL_MAX, "alto");
