@@ -31,6 +31,7 @@ bool create_gui(AppState *state) {
     SDL_SetNumberProperty(props, SDL_PROP_WINDOW_CREATE_WIDTH_NUMBER, img_w);
     SDL_SetNumberProperty(props, SDL_PROP_WINDOW_CREATE_HEIGHT_NUMBER, img_h);
     SDL_SetBooleanProperty(props, SDL_PROP_WINDOW_CREATE_CENTERED_NUMBER, true);
+    SDL_SetBooleanProperty(props, SDL_PROP_WINDOW_CREATE_FOCUSABLE_BOOLEAN, true);
 
     state->main_window = SDL_CreateWindowWithProperties(props);
     SDL_DestroyProperties(props);
