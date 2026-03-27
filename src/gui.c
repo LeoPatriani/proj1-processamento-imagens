@@ -303,6 +303,7 @@ void run_event_loop(AppState *state) {
                         printf("\n[Aviso] Imagem salva com sucesso como 'output_image.png'!\n");
                     }
                     if (event.key.scancode == SDL_SCANCODE_ESCAPE) {
+                        printf("[Info] Encerrando programa via teclado...\n");
                         running = false;
                     }
                     break;
