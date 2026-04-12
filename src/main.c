@@ -27,17 +27,11 @@ int main(int argc, char *argv[]) {
         return EXIT_FAILURE;
     }
 
-    /* Inicializa SDL_image */
-    if (!IMG_Init(IMG_INIT_PNG | IMG_INIT_JPG)) {
-        fprintf(stderr, "Erro ao inicializar SDL_image: %s\n", SDL_GetError());
-        SDL_Quit();
-        return EXIT_FAILURE;
-    }
+    /* SDL_image 3.x não requer IMG_Init/IMG_Quit */
 
     /* Inicializa SDL_ttf */
     if (!TTF_Init()) {
         fprintf(stderr, "Erro ao inicializar SDL_ttf: %s\n", SDL_GetError());
-        IMG_Quit();
         SDL_Quit();
         return EXIT_FAILURE;
     }
@@ -49,7 +43,6 @@ int main(int argc, char *argv[]) {
     state.original_surface = load_image(image_path);
     if (!state.original_surface) {
         TTF_Quit();
-        IMG_Quit();
         SDL_Quit();
         return EXIT_FAILURE;
     }
@@ -60,7 +53,6 @@ int main(int argc, char *argv[]) {
         fprintf(stderr, "Erro ao converter imagem para escala de cinza.\n");
         SDL_DestroySurface(state.original_surface);
         TTF_Quit();
-        IMG_Quit();
         SDL_Quit();
         return EXIT_FAILURE;
     }
@@ -81,7 +73,6 @@ int main(int argc, char *argv[]) {
         SDL_DestroySurface(state.gray_surface);
         SDL_DestroySurface(state.original_surface);
         TTF_Quit();
-        IMG_Quit();
         SDL_Quit();
         return EXIT_FAILURE;
     }
@@ -99,7 +90,6 @@ int main(int argc, char *argv[]) {
     SDL_DestroySurface(state.original_surface);
 
     TTF_Quit();
-    IMG_Quit();
     SDL_Quit();
 
     return EXIT_SUCCESS;
