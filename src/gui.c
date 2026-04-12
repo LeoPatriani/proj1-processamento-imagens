@@ -30,8 +30,8 @@ bool create_gui(AppState *state) {
     SDL_SetStringProperty(props, SDL_PROP_WINDOW_CREATE_TITLE_STRING, "Processamento de Imagens");
     SDL_SetNumberProperty(props, SDL_PROP_WINDOW_CREATE_WIDTH_NUMBER, img_w);
     SDL_SetNumberProperty(props, SDL_PROP_WINDOW_CREATE_HEIGHT_NUMBER, img_h);
-    SDL_SetBooleanProperty(props, SDL_PROP_WINDOW_CREATE_CENTERED_NUMBER, true);
-    SDL_SetBooleanProperty(props, SDL_PROP_WINDOW_CREATE_FOCUSABLE_BOOLEAN, true);
+    SDL_SetNumberProperty(props, SDL_PROP_WINDOW_CREATE_X_NUMBER, SDL_WINDOWPOS_CENTERED);
+    SDL_SetNumberProperty(props, SDL_PROP_WINDOW_CREATE_Y_NUMBER, SDL_WINDOWPOS_CENTERED);
 
     state->main_window = SDL_CreateWindowWithProperties(props);
     SDL_DestroyProperties(props);
@@ -301,10 +301,8 @@ void run_event_loop(AppState *state) {
                 case SDL_EVENT_KEY_DOWN:
                     if (event.key.scancode == SDL_SCANCODE_S) {
                         save_image(state->current_surface);
-                        printf("\n[Aviso] Imagem salva com sucesso como 'output_image.png'!\n");
                     }
                     if (event.key.scancode == SDL_SCANCODE_ESCAPE) {
-                        printf("[Info] Encerrando programa via teclado...\n");
                         running = false;
                     }
                     break;
